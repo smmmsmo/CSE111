@@ -1,0 +1,144 @@
+|````````````````````|
+|                    |
+|       Task 1       |
+|                    |
+``````````````````````
+
+
+public class CSECourse {
+    public String courseName = "Programming Language II";
+    public String courseCode = "CSE111";
+    public int credit = 3;
+}
+
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 2       |
+|                    |
+``````````````````````
+
+
+public class ImaginaryNumber {
+
+    public int realPart = 0;
+    public int imaginaryPart = 0;
+
+    public String printNumber() {
+        return (realPart + " " + "+" + " " + imaginaryPart + "i");
+    }
+
+}
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 3       |
+|                    |
+``````````````````````
+
+
+public class Assignment {
+
+    public int tasks = 0;
+    public String difficulty = "null";
+    public boolean submission = false;
+
+    public void printDetails() {
+        System.out.println("Number of tasks: " + tasks);
+        System.out.println("Difficulty level: " + difficulty);
+        System.out.println("Submission required : " + submission);
+    }
+
+    public String makeOptional() {
+        if (submission) {
+            return "Assignment will not require submission.";
+        } else {
+            return "Submission is already not required.";
+        }
+    }
+
+}
+
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 4       |
+|                    |
+``````````````````````
+
+
+public class Employee {
+
+    public String employeeName;
+    public double employeeSalary = 30000;
+    public String employeeDesignation = "junior";
+
+    public void newEmployee(String name) {
+        this.employeeName = name;
+    }
+
+    public void displayInfo() {
+        System.out.println("Employee Name: " + this.employeeName);
+        System.out.println("Employee Salary: " + this.employeeSalary + " Tk");
+        System.out.println("Employee Designation: " + this.employeeDesignation);
+
+    }
+
+    public int base = 30000;
+
+    public void promoteEmployee(String position) {
+        this.employeeDesignation = position;
+
+        if (employeeDesignation.equals("junior")) {
+            this.employeeSalary = base;
+            System.out.println(this.employeeName + " has been promoted to " + employeeDesignation);
+            System.out.println("New Salary: " + this.employeeSalary);
+        }
+        if (employeeDesignation.equals("senior")) {
+            this.employeeSalary = base + 25000;
+            System.out.println(this.employeeName + " has been promoted to " + employeeDesignation);
+            System.out.println("New Salary: " + this.employeeSalary);
+        }
+        if (employeeDesignation.equals("lead")) {
+            this.employeeSalary = base + 50000;
+            System.out.println(this.employeeName + " has been promoted to " + employeeDesignation);
+            System.out.println("New Salary: " + this.employeeSalary);
+        }
+        if (employeeDesignation.equals("manager")) {
+            this.employeeSalary = base + 75000;
+            System.out.println(this.employeeName + " has been promoted to " + employeeDesignation);
+            System.out.println("New Salary: " + this.employeeSalary);
+        }
+    }
+
+    public double calculateTax() {
+        double tax = 0.0;
+        if (employeeSalary > 50000) {
+            tax = employeeSalary * 0.3;
+            System.out.println(employeeName + "Tax Amount: " + tax + "Tk");
+        } else if (employeeSalary > 30000) {
+            tax = employeeSalary * 0.1;
+            System.out.println(employeeName + "Tax Amount: " + tax + "Tk");
+        } else {
+            tax = 0.0;
+            System.out.println("No need to pay Tax");
+        }
+        return tax;
+    }
+
+}
+
+
+================================================================================================================================================================

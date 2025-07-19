@@ -1,0 +1,323 @@
+|````````````````````|
+|                    |
+|       Task 1       |
+|                    |
+``````````````````````
+
+
+import java.util.*;
+
+public class Task1 {
+
+    public static boolean isPrime(int n) {
+        if (n < 2) {
+            return false;
+        }
+        for (int i = 2; i <= Math.sqrt(n); i++) {
+            if (n % i == 0) {
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static int primeCount(int number1, int number2) {
+        int count = 0;
+        int start = Math.min(number1, number2);
+        int end = Math.max(number1, number2);
+        for (int i = start; i <= end; i++) {
+            if (isPrime(i)) {
+                count++;
+            }
+        }
+        return count;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        int input1 = scanner.nextInt();
+        int input2 = scanner.nextInt();
+
+        int result = primeCount(input1, input2);
+        System.out.println("There are " + result + " prime numbers between " + input1 + " and " + input2 + ".");
+        scanner.close();
+
+    }
+
+}
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 2       |
+|                    |
+``````````````````````
+
+
+import java.util.*;
+
+public class Task2 {
+    public static void main(String[] args) {
+
+
+Scanner scanner = new Scanner(System.in);
+
+String input = scanner.nextLine();
+String newString = "";
+
+for(int i = 0; i < input.length(); i++) {
+    char ch = input.charAt(i);
+
+    char prevChar;
+    if(ch >= 'a' && ch <= 'z') {
+        if (ch == 'a') {
+            prevChar = 'z';
+            newString += prevChar;
+        } else {
+            prevChar = (char) (ch - 1);
+            newString += prevChar;
+        }
+    }
+}
+System.out.println(newString);
+scanner.close()
+
+
+    }
+}
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 3       |
+|                    |
+``````````````````````
+
+
+import java.util.*;
+
+public class Task3 {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int input = scanner.nextInt();
+
+        int array[] = new int[input];
+
+        for (int i = 0; i < input; i++) {
+            array[i] = scanner.nextInt();
+        }
+        for (int i = input - 1; i >= 0; i--) {
+            System.out.print(array[i] + " ");
+        }
+
+        scanner.close();
+
+    }
+}
+
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 4       |
+|                    |
+``````````````````````
+
+
+import java.util.*;
+
+public class Task4 {
+    public static void main(String[] args) {
+
+        Scanner scanner = new Scanner(System.in);
+
+        int input = scanner.nextInt();
+
+        int array[] = new int[input];
+        boolean isDuplicate[] = new boolean[input];
+
+        for (int i = 0; i < input; i++) {
+            array[i] = scanner.nextInt();
+        }
+
+        for (int i = 0; i < input; i++) {
+            if (isDuplicate[i]) {
+                continue;
+            }
+            int count = 1;
+
+            for (int j = i + 1; j < input; j++) {
+                if (array[i] == array[j]) {
+                    count++;
+                    isDuplicate[j] = true;
+                }
+
+            }
+            if (count >= 1) {
+                System.out.println(array[i] + " - " + count + " times.");
+            }
+        }
+        scanner.close();
+
+    }
+}
+
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 5       |
+|                    |
+``````````````````````
+
+
+
+import java.util.*;
+
+public class Task5 {
+    
+    public static void printMap(int arr[][]) {
+        for (int row[] : arr) {
+            for (int val : row) {
+                System.out.print(val + "\t");
+            }
+            System.out.println();
+        }
+        System.out.println();
+    }
+    
+    public static String toUpper(String input) {
+        String result = "";
+        for (int i = 0; i < input.length(); i++) {
+            char ch = input.charAt(i);
+            if (ch >= 'a' && ch <= 'z') {
+                ch = (char) (ch - 32);
+            }
+            result += ch;
+        }
+        return result;
+    }
+    
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+
+        System.out.print("Enter number of rows: ");
+        int rows = sc.nextInt();
+
+        System.out.print("Enter number of columns: ");
+        int cols = sc.nextInt();
+
+        int arr2D[][] = new int[rows][cols];
+
+        System.out.println("Enter grid values row by row:");
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                arr2D[i][j] = sc.nextInt();
+            }
+        }
+
+        int playerCount = 0;
+        int treasureCount = 0;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (arr2D[i][j] == 7)
+                    playerCount++;
+                if (arr2D[i][j] == 10)
+                    treasureCount++;
+            }
+        }
+
+        if (playerCount != 1 || treasureCount != 1) {
+            System.out.println("Error: Grid must contain exactly one player (7) and one treasure (10).");
+            return;
+        }
+
+        int rowPosition = -1, columnPosition = -1;
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (arr2D[i][j] == 7) {
+                    rowPosition = i;
+                    columnPosition = j;
+                    break;
+                }
+            }
+        }
+
+        System.out.println("Initial Map:");
+        printMap(arr2D);
+
+        int turns = 5;
+        sc.nextLine();
+
+        while (turns > 0) {
+            System.out.printf("Enter move %d: ", (6 - turns));
+            String inp = toUpper(sc.nextLine().trim());
+
+            int new_row = rowPosition;
+            int new_column = columnPosition;
+
+            if (inp.equals("UP"))
+                new_row--;
+            else if (inp.equals("DOWN"))
+                new_row++;
+            else if (inp.equals("LEFT"))
+                new_column--;
+            else if (inp.equals("RIGHT"))
+                new_column++;
+            else {
+                System.out.println("Invalid move. Use UP, DOWN, LEFT, or RIGHT.");
+                continue;
+            }
+
+            if (new_row < 0 || new_row >= rows || new_column < 0 || new_column >= cols) {
+                System.out.println("Out of bounds. You lose!");
+                return;
+            }
+
+            if (arr2D[new_row][new_column] == -1) {
+                System.out.println("Stepped on a mine. You lose!");
+                return;
+            }
+
+            if (arr2D[new_row][new_column] == 10) {
+                arr2D[rowPosition][columnPosition] = 0;
+                arr2D[new_row][new_column] = 7;
+                System.out.println("Treasure found. You win!");
+                System.out.println("Final state:");
+                printMap(arr2D);
+                return;
+            }
+
+            arr2D[rowPosition][columnPosition] = 0;
+            arr2D[new_row][new_column] = 7;
+            rowPosition = new_row;
+            columnPosition = new_column;
+
+            System.out.println("Current state:");
+            printMap(arr2D);
+            turns--;
+        }
+
+        System.out.println("Failed to find the treasure.");
+
+        sc.close();
+
+    }
+}
+
+
+==================================================================================================================================================================
