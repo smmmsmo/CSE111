@@ -93,7 +93,6 @@ Each week contains three categories:
 
 ### 💬 Need Help or Wish to Connect?
 - 🐛 Found a bug? [Open an issue](https://github.com/MostofaMorshedSayeem/CSE111/issues)
-- 💡 Have suggestions? [Start a discussion](https://github.com/MostofaMorshedSayeem/CSE111/discussions)
 - 📧 Want to connect? Reach out via GitHub!  
    [Facebook](https://www.facebook.com/smmmsmo)
 [Twitter/X](https://x.com/smmmsmo)
