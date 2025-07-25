@@ -8,8 +8,13 @@ public class Task4 {
 
         System.out.print("row = ");
         int row = scanner.nextInt();
+
+        System.out.println("");
+
         System.out.print("column = ");
         int col = scanner.nextInt();
+
+        System.out.println("");
 
         int array_2d[][] = new int[row][col];
         int array_1d[] = new int[row * col];

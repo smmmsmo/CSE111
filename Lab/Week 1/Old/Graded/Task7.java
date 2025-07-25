@@ -1,25 +1,20 @@
 import java.io.*;
 import java.util.*;
 
-public class Task3 {
+public class Task7 {
     public static void main(String[] args) {
-
         Scanner scanner = new Scanner(System.in);
-
         System.out.print("N = ");
-
         int N = scanner.nextInt();
-
-        double original[] = new double[N];
-
-        for (int i = 0; i < original.length; i++) {
+        double[] original = new double[N];
+        for (int i = 0; i < N; i++) {
             original[i] = scanner.nextDouble();
         }
 
         double new_original[] = new double[N];
         int index = 0;
 
-        if (original.length > 0) {
+        if (N > 0) {
             new_original[index++] = original[0];
 
             for (int i = 1; i < N; i++) {
@@ -28,15 +23,13 @@ public class Task3 {
                 }
             }
         }
-
         System.out.print("New array: ");
         for (int i = 0; i < index; i++) {
             System.out.print(new_original[i] + " ");
         }
 
         System.out.println();
-        System.out.println("Removed items : " + (original.length - index));
+        System.out.println("Removed items : " + (N - index));
         scanner.close();
-
     }
 }

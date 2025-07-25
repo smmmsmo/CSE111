@@ -17,9 +17,8 @@ public class Task1 {
 
     public static int primeCount(int number1, int number2) {
         int count = 0;
-        int start = Math.min(number1, number2);
-        int end = Math.max(number1, number2);
-        for (int i = start; i <= end; i++) {
+
+        for (int i = number1; i <= number2; i++) {
             if (isPrime(i)) {
                 count++;
             }
@@ -32,8 +31,11 @@ public class Task1 {
         int input1 = scanner.nextInt();
         int input2 = scanner.nextInt();
 
-        int result = primeCount(input1, input2);
-        System.out.println("There are " + result + " prime numbers between " + input1 + " and " + input2 + ".");
+        int min = Math.min(input1, input2);
+        int max = Math.max(input1, input2);
+
+        int result = primeCount(min, max);
+        System.out.println("There are " + result + " prime numbers between " + min + " and " + max + ".");
         scanner.close();
 
     }
