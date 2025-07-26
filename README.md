@@ -18,7 +18,9 @@
 ## 📚 Course Overview
 
 🗓️ **Semester**: Summer 2025
+
 💻 **Language**: Java  
+
 🎯 **Focus**: Object-Oriented Programming Fundamentals
 
 
