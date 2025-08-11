@@ -12,10 +12,6 @@
 
 <div align="center">
 
-## 🎉 **Happy Coding!** 🚀
-
----
-
 **✨ Made with ❤️ ✨**
 
 </div>
