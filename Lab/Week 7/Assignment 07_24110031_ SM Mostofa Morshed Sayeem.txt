@@ -1,0 +1,157 @@
+|````````````````````|
+|                    |
+|       Task 1       |
+|                    |
+``````````````````````
+
+
+public class Player {
+    public static int total = 0;
+    public static String playerNameList = ""; // static string implementation
+
+    public String name;
+    public String country;
+    public int jerseyNumber;
+
+    public Player(String newName, String newCountry, int newJerseyNumber) {
+        this.name = newName;
+        this.country = newCountry;
+        this.jerseyNumber = newJerseyNumber;
+        total++;
+
+        playerNameList = playerNameList + ", " + name;
+
+    }
+
+    public String player_detail() {
+        return ("Player Name: " + name + "\n" +
+                "Jersey Number: " + jerseyNumber + "\n" +
+                "Country: " + country);
+    }
+
+    public static void info() {
+        System.out.println("Total number of players: " + total);
+        System.out.println("Players enlisted so far: " + playerNameList);
+    }
+}
+
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 2       |
+|                    |
+``````````````````````
+
+
+public class Travel {
+
+    private static int count = 0;
+    public static int getCount() {
+        return count;
+    }
+    public static void setCount(int count) {
+        Travel.count = count;
+    }
+
+
+    private String source;
+    public String getSource() {
+        return source;
+    }
+    public void setSource(String source) {
+        this.source = source;
+    }
+
+
+    private String destination;
+    public String getDestination() {
+        return destination;
+    }
+    public void setDestination(String newDestination) {
+        this.destination = newDestination;
+    }
+
+
+    private int time = 1;
+    public int getTime() {
+        return time;
+    }
+    public void setTime(int newTime) {
+        this.time = newTime;
+    }
+
+
+    public Travel(String source, String destination) {
+        setSource(source);
+        setDestination(destination);
+        count++;
+    }
+
+    public String displayTravelInfo() {
+        return ("Source: " + getSource() + "\n"+
+                "Destination: " + getDestination() + "\n" +
+                "Flight Time: " + getTime()+":00");
+    }
+}
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 3       |
+|                    |
+``````````````````````
+
+
+public class Cargo {
+    private static double totalCapacity = 10.0;
+    private static int uniqueId = 1;
+
+    private int id;
+    private String contents;
+    private double weight;
+    private boolean loaded;
+
+    public Cargo(String contents, double weight) {
+        this.id = uniqueId++;
+        this.contents = contents;
+        this.weight = weight;
+        this.loaded = false;
+    }
+
+    public static double capacity() {
+        return totalCapacity;
+    }
+
+    public void details() {
+        System.out.println("Cargo ID: " + this.id + ", Contents: " + this.contents + ", \nWeight: " + this.weight
+                + ", Loaded: " + this.loaded);
+    }
+
+    public void load() {
+        if (!this.loaded && this.weight <= totalCapacity) {
+            this.loaded = true;
+            totalCapacity -= this.weight;
+            System.out.println("Cargo " + this.id + " loaded for transport.");
+        } else {
+            System.out.println("Cannot load cargo, exceeds weight capacity.");
+        }
+    }
+
+    public void unload() {
+        if (this.loaded) {
+            this.loaded = false;
+            totalCapacity += this.weight;
+            System.out.println("Cargo " + this.id + " unloaded.");
+        }
+    }
+}
+        
+
+==================================================================================================================================================================
