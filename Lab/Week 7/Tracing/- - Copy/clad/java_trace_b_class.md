@@ -12,7 +12,7 @@ class B{
     y = temp + 3 ;
     sum = 3 + temp + 3;
     temp-=2;
-  }  
+  }  ****
   public B(B b){
     sum = b.sum;
     x = b.x;
