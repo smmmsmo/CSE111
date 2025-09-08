@@ -1,0 +1,233 @@
+|````````````````````|
+|                    |
+|       Task 1       |
+|                    |
+``````````````````````
+
+
+class Animal {
+    public int legs = 4;
+    public String sound = "Not defined";
+
+    public void details() {
+        System.out.println("Legs: " + legs);
+        System.out.println("Sound: " + sound);
+    }
+}
+
+class Dog extends Animal {
+    public String name;
+
+    public String getName() {
+        return name;
+    }
+
+    public void updateSound(String newSound) {
+        this.sound = newSound;
+    }
+}
+
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 2       |
+|                    |
+``````````````````````
+
+
+class Account {
+  public double balance = 0.0;
+
+  public Account(double balance) {
+    this.balance = balance;
+  }
+
+  public double showBalance() {
+    return balance;
+  }
+}
+
+class CheckingAccount extends Account {
+  public static int count = 0;
+
+  public CheckingAccount() {
+    super(0.0);
+    count++;
+  }
+
+  public CheckingAccount(double balance) {
+    super(balance);
+    count++;
+  }
+}
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 3       |
+|                    |
+``````````````````````
+
+
+
+class Product {
+  private int id;
+  private String title;
+  private int price;
+
+  public Product(int id, String title, int price) {
+    this.id = id;
+    this.title = title;
+    this.price = price;
+  }
+
+  public String getIdTitlePrice() {
+    return "ID: " + id + " Title: " + title + " Price: " + price;
+  }
+}
+
+class Book extends Product {
+  private String isbn;
+  private String publisher;
+
+  public Book(int id, String title, int price, String isbn, String publisher) {
+    super(id, title, price);
+    this.isbn = isbn;
+    this.publisher = publisher;
+  }
+
+  public String printDetail() {
+    return getIdTitlePrice() + " ISBN: " + isbn + " Publisher: " + publisher;
+  }
+}
+
+class CD extends Product {
+  private String band;
+  private int duration;
+  private String genre;
+
+  public CD(int id, String title, int price, String band, int duration, String genre) {
+    super(id, title, price);
+    this.band = band;
+    this.duration = duration;
+    this.genre = genre;
+  }
+
+  public String printDetail() {
+    return getIdTitlePrice() + " Band: " + band + " Duration: " + duration + " minutes Genre: " + genre;
+  }
+}
+
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 4       |
+|                    |
+``````````````````````
+
+
+class Student {
+    public String name;
+    public int id;
+    public String courses = "";
+
+    public Student(String n, int i) {
+        name = n;
+        id = i;
+    }
+
+    public void info() {
+        System.out.println("Name: " + name);
+        System.out.println("ID: " + id);
+        System.out.println("Courses: " + courses);
+    }
+}
+
+class CSEStudent extends Student {
+    private static int totalStudents = 0;
+    private static String[] labBasedCourses = {"CSE110", "CSE111", "CSE220", "CSE221"};
+
+    public CSEStudent(String n, int i) {
+    super(n, i);
+        totalStudents++;
+    }
+
+    public static void details() {
+        System.out.println("Total CSE Students: " + totalStudents);
+        System.out.println("Available Lab Based Courses: ");
+        for (String c : labBasedCourses) {
+            System.out.print(c + " ");
+        }
+        System.out.println();
+    }
+
+    public void addLabBasedCourse(String course) {
+        boolean found = false;
+        for (String c : labBasedCourses) {
+            if (c.equals(course)) {
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            if (courses.equals("")) {
+                courses = course;
+            } else {
+                courses += " " + course;
+            }
+        } else {
+            System.out.println("It is not a lab based course!");
+        }
+    }
+}
+
+
+================================================================================================================================================================
+
+
+|````````````````````|
+|                    |
+|       Task 5       |
+|                    |
+``````````````````````
+
+
+class RealNumber {
+    public double realValue;
+    public RealNumber() {
+        this(0.0);
+    }
+    public RealNumber(double realValue) {
+        this.realValue = realValue;
+    }
+    public String toString(){
+        return "RealPart: " + realValue;
+    }
+}
+
+class ComplexNumber extends RealNumber {
+    public double imaginaryValue;
+    public ComplexNumber() {
+    this(1.0, 1.0);
+    }
+    public ComplexNumber(double realValue, double imaginaryValue) {
+        super(realValue);
+        this.imaginaryValue = imaginaryValue;
+    }
+    public String toString(){
+        return super.toString() + "\nImaginaryPart: " + imaginaryValue;
+    }
+}
+
+
+================================================================================================================================================================
